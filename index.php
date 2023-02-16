@@ -11,7 +11,7 @@
 <body>
   <form action="validacao.php" method="post">
     <label for="">Informe a placa do veiculo</label>
-    <input type="text" name="placa" required>
+    <input type="text" name="placa" required autofocus>
     <input type="submit">
     <input type="reset">
 </form>

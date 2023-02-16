@@ -31,18 +31,23 @@
       }
     }
 
+    $contNumb = 0;
+    $contString = 0;
     $tipos = array();
     for ($i = 0; $i < strlen($placa); $i++) {
       if (verifica($placa[$i]) == "numero") {
         array_push($tipos, "numero");
+        $contNumb ++;
       } else {
         array_push($tipos, "string");
+        $contString ++;
       }
     }
+    
 
     $modelo = "";
-    if (strlen($placa) != 7) {
-      echo "Placa deve ter menos de 7 digitos";
+    if (strlen($placa) != 7 or $contNumb != 3 or $contString != 4) {
+      echo "Placa deve ter menos de 7 digitos, 3 numeros e 4 letras";
       echo "<a href='index.php'>Voltar</a>";
     } else {
       if ($tipos[3] == "numero" and $tipos[4] == "string") {
@@ -65,11 +70,6 @@
     $_SESSION['placa'] = $placa;
     $_SESSION['tipo'] = $modelo;
 
-    // echo "<br>";
-
-    // for ($z = 0; $z < count($tipos); $z++) {
-    //   echo $z ."-". $tipos[$z] . "<br>";
-    // }
     ?>
   </form>
 
